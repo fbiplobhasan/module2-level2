@@ -442,26 +442,64 @@ const rawApiData = [
 
 //* Video 6
 // 01
-const postsArray = [
-    { id: "p-101", title: "Intro to SQL", author: "Alex" },
-    { id: "p-102", title: "Data Structures in JS", author: "Beth" },
-    { id: "p-103", title: "Understanding Reduce", author: "Chris" },
-    { id: "p-104", title: "CSS grid Tricks", author: "John" },
-]
+// const postsArray = [
+//     { id: "p-101", title: "Intro to SQL", author: "Alex" },
+//     { id: "p-102", title: "Data Structures in JS", author: "Beth" },
+//     { id: "p-103", title: "Understanding Reduce", author: "Chris" },
+//     { id: "p-104", title: "CSS grid Tricks", author: "John" },
+// ]
 
-const lookupTable = postsArray.reduce((table, post) => {
-    table[post.id] = post;
-    return table
-}, {})
+// const lookupTable = postsArray.reduce((table, post) => {
+//     table[post.id] = post;
+//     return table
+// }, {})
 
 
 //! const post = postsArray.find((post) => post.id === "p-104")
-const post = lookupTable["p-104"]
+// const post = lookupTable["p-104"]
 
 // console.log(lookupTable["p-104"]); 
 
-for (let post in lookupTable) {
-    console.log(lookupTable[post]);
-}
+// for (let post in lookupTable) {
+//     console.log(lookupTable[post]);
+// }
 
-console.log(post);
+// console.log(post);
+
+// 02
+// const surveyResponse = [
+//     "A",
+//     "C",
+//     "B",
+//     "A",
+//     "B",
+//     "B",
+//     "C",
+//     "A",
+//     "B",
+//     "D",
+//     "A",
+//     "C",
+//     "B",
+//     "A"
+// ]
+
+// TODO initiate empty object
+// TODO Check if the response already exist or not
+// TODO if it exist then increment the count
+// TODO if not the initialize it with 1
+
+// const count = surveyResponse.reduce((table, response) => {
+    // console.log(table, ":", response);
+    // if (table[response]) {
+    //     table[response] = table[response] + 1
+    // } else {
+    //     table[response] = 1
+    // }
+
+//     table[response] = (table[response] || 0) + 1
+
+//     return table
+// }, {})
+
+// console.log(count);
