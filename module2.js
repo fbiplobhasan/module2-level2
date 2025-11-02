@@ -506,63 +506,69 @@ const rawApiData = [
 
 // Video 8
 // 01 (hash table)
-const sales = [
-    {
-        category: "Electronics",
-        item: "Wireless Mouse",
-        price: 25,
-        quantity: 50,
-    },
-    {
-        category: "Book",
-        item: "JavaScript Basics",
-        price: 15,
-        quantity: 30,
-    },
-    {
-        category: "Home",
-        item: "Electric Kettle",
-        price: 40,
-        quantity: 20,
-    },
-    {
-        category: "Books",
-        item: "Learn React Fast",
-        price: 18,
-        quantity: 25,
-    },
-    {
-        category: "Electronics",
-        item: "Bluetooth Headphones",
-        price: 60,
-        quantity: 35,
-    },
-    {
-        category: "Next Item",
-        item: "Smart Fitness Watch",
-        price: 120,
-        quantity: 10,
-    },
-];
+// const sales = [
+//     { category: "Electronics", item: "Laptop", price: 1200, quantity: 1 },
+//     { category: "Books", item: "JS Basics", price: 30, quantity: 2 },
+//     { category: "Electronics", item: "Mouse", price: 25, quantity: 2 },
+//     { category: "Home", item: "Chair", price: 150, quantity: 1 },
+//     { category: "Books", item: "React Deep Dive", price: 50, quantity: 1 },
+//     { category: "Electronics", item: "Keyboard", price: 80, quantity: 1 },
+// ];
 
 // TODO Init empty obj
 // TODO Init obj category
 // TODO Calculate the revenue
 
-const totalSalesByCategory = sales.reduce((table, sale) => {
-    const { category, price, quantity } = sale;
+// const totalSalesByCategory = sales.reduce((table, sale) => {
+//     console.log(table, ":", sale);
+//     const { category, price, quantity } = sale;
 
-    if (!table[category]) {
-        table[category] = {
-            totalRevenue: 0,
-            itemCount: 0,
-        };
+//     if (!table[category]) {
+//         table[category] = {
+//             totalRevenue: 0,
+//             itemCount: 0,
+//         };
+//     }
+
+//     table[category].totalRevenue += price * quantity;
+//     table[category].itemCount += quantity;
+
+//     return table;
+// }, {})
+
+// console.log(totalSalesByCategory);
+
+// Video (9)
+
+const users = [
+    { id: 101, name: "Alice" },
+    { id: 102, name: "Bob" },
+    { id: 103, name: "Charlie" },
+];
+
+const posts = [
+    { id: 1, userId: 102, title: "My first post" },
+    { id: 2, userId: 101, title: "React Hooks" },
+    { id: 3, userId: 101, title: "Data Structures" },
+    { id: 4, userId: 103, title: "CSS is fun" },
+    { id: 5, userId: 102, title: "Node.js streams" },
+];
+
+// TODO create hashtable of posts
+const postByUserId = posts.reduce((table, post) => {
+    const { userId } = post;
+    if (!table[userId]) {
+        table[userId] = [];
     }
-
-    table[category].totalRevenue += price * quantity;
-    table[category].itemCount += quantity;
-
-    return table;
+    table[userId].push(post)
+    return table
 }, {})
 
-console.log(totalSalesByCategory);
+const userWithPost = users.map((user) => {
+    return {
+        ...user,
+        posts: postByUserId[user.id] || []
+    }
+})
+
+console.log(JSON.stringify(userWithPost));
