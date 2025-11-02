@@ -490,12 +490,12 @@ const rawApiData = [
 // TODO if not the initialize it with 1
 
 // const count = surveyResponse.reduce((table, response) => {
-    // console.log(table, ":", response);
-    // if (table[response]) {
-    //     table[response] = table[response] + 1
-    // } else {
-    //     table[response] = 1
-    // }
+// console.log(table, ":", response);
+// if (table[response]) {
+//     table[response] = table[response] + 1
+// } else {
+//     table[response] = 1
+// }
 
 //     table[response] = (table[response] || 0) + 1
 
@@ -503,3 +503,66 @@ const rawApiData = [
 // }, {})
 
 // console.log(count);
+
+// Video 8
+// 01 (hash table)
+const sales = [
+    {
+        category: "Electronics",
+        item: "Wireless Mouse",
+        price: 25,
+        quantity: 50,
+    },
+    {
+        category: "Book",
+        item: "JavaScript Basics",
+        price: 15,
+        quantity: 30,
+    },
+    {
+        category: "Home",
+        item: "Electric Kettle",
+        price: 40,
+        quantity: 20,
+    },
+    {
+        category: "Books",
+        item: "Learn React Fast",
+        price: 18,
+        quantity: 25,
+    },
+    {
+        category: "Electronics",
+        item: "Bluetooth Headphones",
+        price: 60,
+        quantity: 35,
+    },
+    {
+        category: "Next Item",
+        item: "Smart Fitness Watch",
+        price: 120,
+        quantity: 10,
+    },
+];
+
+// TODO Init empty obj
+// TODO Init obj category
+// TODO Calculate the revenue
+
+const totalSalesByCategory = sales.reduce((table, sale) => {
+    const { category, price, quantity } = sale;
+
+    if (!table[category]) {
+        table[category] = {
+            totalRevenue: 0,
+            itemCount: 0,
+        };
+    }
+
+    table[category].totalRevenue += price * quantity;
+    table[category].itemCount += quantity;
+
+    return table;
+}, {})
+
+console.log(totalSalesByCategory);
